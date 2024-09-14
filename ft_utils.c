@@ -6,10 +6,11 @@ void	addnewf(t_list **lst, int content, int number)
 
 	new = malloc(sizeof(t_list));
 	if (!new)
-		return (write(1, "\n\n\nmalloc failed\n", 17), NULL);
+		return; 
 	new -> content = content;
 	new -> number = number;
 	new -> next = *lst;
+	new -> status = 1;
 	(*lst) -> prev = new; 
 	*lst = new;
 }
@@ -23,6 +24,7 @@ t_list	*arrayst(int count, int *tab)
 	head -> next = NULL;
 	head -> content = tab[--count];
 	head -> number = count;
+	head -> status = 1;
 	while (--count >= 0)
 		addnewf(&head, tab[count], count);
 	head -> prev = NULL;
@@ -51,15 +53,19 @@ t_list	*blst(int count)
 		return (write(1, "\n\n\nmalloc failed\n", 17), NULL);
 	b -> number = --count;
 	b -> next = NULL;
+	b -> status = 0;
 	while (--count >= 0)
 	{
-		b -> next = b;
-		b -> number = count;
 		b -> prev = malloc(sizeof(t_list));
 		if (!b -> prev)
 			return (write(1, "\n\n\nmalloc failed\n", 17), NULL);
+		b -> prev -> next = b;
 		b = b -> prev;
+		b -> number = count;
+		b -> status = 0;
 	}
+	b -> prev = NULL;
+	return (b);
 }
 
 

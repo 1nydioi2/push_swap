@@ -6,7 +6,7 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 08:24:14 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/05 18:18:02 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/14 17:27:16 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int count(int c, char **v)
 		}
 		i++;
 	}
-	printf("(count)res = %d\n\n\n", res);
+	printf("\n(count)res = %d\n\n\n", res);
 	return (res);
 }
 
@@ -130,10 +130,11 @@ int	main(int c, char **v)
 {
 	int	*tab;
 	int	*st;
-	int 	status;
+	int status;
 	int	couint;
 	int	i = -1;
-	t_list	*lst;
+	t_list	*a;
+	t_list	*b;
 
 	status = 0;
 	st = &status;
@@ -153,19 +154,36 @@ int	main(int c, char **v)
 	while (++i < couint)
 		printf("tab[%d] = %d\n", i, tab[i]);
 	printf("\n\n");
-	lst = arrayst(couint, tab);
-	while (lst -> next)
+	
+	a = arrayst(couint, tab);
+	while (a -> next)
 	{
-		printf("lst n°%d = '%d'\n", lst -> number, lst -> content);
-		lst = lst -> next;
+			printf("a n°%d (s = %d)= '%d'\n", a -> number, a -> status, a -> content);
+		a = a -> next;
 	}
-	printf("lst n°%d = '%d'\n\n", lst -> number, lst -> content);
-	while (lst -> prev)
+	printf("a n°%d (s = %d)= '%d'\n", a -> number, a -> status, a -> content);
+	while (a -> prev)
 	{
-		printf("lst n°%d = '%d'\n", lst -> number, lst -> content);
-		lst = lst -> prev;
+		printf("a n°%d (s = %d)= '%d'\n", a -> number, a -> status, a -> content);
+		a = a -> prev;
 	}
-	printf("lst n°%d = '%d'\n", lst -> number, lst -> content);
+	printf("a n°%d (s = %d)= '%d'\n\n\n", a -> number, a -> status, a -> content);
+	
+	b = blst(couint);
+	while (b -> next)
+	{
+			printf("b n°%d (s = %d)= '%d'\n", b -> number, b -> status, b -> content);
+		b = b -> next;
+	}
+	printf("b n°%d (s = %d)= '%d'\n", b -> number, b -> status, b -> content);
+	while (b -> prev)
+	{
+		printf("b n°%d (s = %d)= '%d'\n", b -> number, b -> status, b -> content);
+		b = b -> prev;
+	}
+	printf("b n°%d (s = %d)= '%d'\n", b -> number, b -> status, b -> content);
+
 	free(tab);
-	liberator(lst);
+	liberator(a);
+	liberator(b);
 }

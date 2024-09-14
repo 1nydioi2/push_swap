@@ -6,7 +6,7 @@ void	addnewf(t_list **lst, int content, int number)
 
 	new = malloc(sizeof(t_list));
 	if (!new)
-		return;
+		return (write(1, "\n\n\nmalloc failed\n", 17), NULL);
 	new -> content = content;
 	new -> number = number;
 	new -> next = *lst;
@@ -19,7 +19,7 @@ t_list	*arrayst(int count, int *tab)
 	t_list	*head;
 	head = malloc(sizeof(t_list));
 	if (!head)
-		return (NULL);
+		return (write(1, "\n\n\nmalloc failed\n", 17), NULL);
 	head -> next = NULL;
 	head -> content = tab[--count];
 	head -> number = count;
@@ -41,3 +41,47 @@ void	liberator(t_list *lst)
 	}
 	free(lst);
 }
+
+t_list	*blst(int count)
+{
+	t_list *b;
+	
+	b = malloc(sizeof(t_list));
+	if (!b)
+		return (write(1, "\n\n\nmalloc failed\n", 17), NULL);
+	b -> number = --count;
+	b -> next = NULL;
+	while (--count >= 0)
+	{
+		b -> next = b;
+		b -> number = count;
+		b -> prev = malloc(sizeof(t_list));
+		if (!b -> prev)
+			return (write(1, "\n\n\nmalloc failed\n", 17), NULL);
+		b = b -> prev;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

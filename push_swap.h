@@ -6,9 +6,10 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 08:37:30 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/14 18:42:01 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/16 19:47:27 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -35,5 +36,7 @@ void			prin(t_list *lst, char *str);
 void			ss(t_list **a, t_list **b);
 void			rr(t_list **a, t_list **b);
 void			rrr(t_list **a, t_list **b);
-void			indexator(t_list *lst, int count);
+void			indexator(t_list *lst, int *tab, int count);
+int				chtitator(int chti, int *tab, int count, int index);
+void			tabulator(int *tab, int count);
 #endif

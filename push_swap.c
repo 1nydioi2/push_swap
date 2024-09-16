@@ -6,7 +6,7 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 08:24:14 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/14 17:27:16 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/16 19:37:20 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,27 +156,12 @@ int	main(int c, char **v)
 	
 	
 	a = arrayst(couint, tab);
-	indexator(a, couint);
+	tabulator(tab, couint);
+	indexator(a, tab, couint);
 	b = blst(couint);
 	prin(a, "lst a");
 	prin(b, "lst b");
 
-	swap(&a);
-	prin(a, "swp lst a");
-	prin(b, "lst b");	
-	
-	push(&a, &b);
-	prin(a, "psh lst a");
-	prin(b, "to lst b");	
-	
-	rotate(&a);
-	prin(a, "rtt lst a");
-	prin(b, "lst b");
-	
-	rev_rotate(&a);
-	prin(a, "rrtt lst a");
-	prin(b, "lst b");
-	
 	free(tab);
 	liberator(a);
 	liberator(b);

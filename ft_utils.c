@@ -1,19 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/16 19:03:12 by nilamber          #+#    #+#             */
+/*   Updated: 2024/09/16 20:13:39 by nilamber         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	indexator(t_list *lst, int *tab, int count)
 {
-	t_list *chti;
-	int	index;
+	t_list	*chti;
+	t_list	*mp3;
+	int		index;
 
 	index = 0;
 	while (index < count)
 	{
 		chti = lst;
-		while (lst -> next)
+		mp3 = lst;
+		while (mp3 -> next)
 		{
-			if (chti -> content > lst -> content && !chtitator(chti))
-				chti = lst;
-			lst = lst -> next;
+			if ((chti -> content > mp3 -> content) 
+					&& (!chtitator(chti -> content, tab, count, index)))
+				chti = mp3;
+			mp3 = mp3 -> next;
 		}
 		chti -> index = index++;
 	}

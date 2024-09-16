@@ -19,7 +19,7 @@
 typedef struct	s_list
 {
 	int				content;
-	int				number;
+	int				index;
 	int				status;
 	struct s_list	*next;
 	struct s_list	*prev;
@@ -31,4 +31,9 @@ void			swap(t_list **lst);
 void			push(t_list **alpha, t_list **beta);
 void			rotate(t_list **lst);
 void			rev_rotate(t_list **lst);
+void			prin(t_list *lst, char *str);
+void			ss(t_list **a, t_list **b);
+void			rr(t_list **a, t_list **b);
+void			rrr(t_list **a, t_list **b);
+void			indexator(t_list *lst, int count);
 #endif

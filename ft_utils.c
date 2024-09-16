@@ -1,6 +1,25 @@
 #include "push_swap.h"
 
-void	addnewf(t_list **lst, int content, int number)
+void	indexator(t_list *lst, int *tab, int count)
+{
+	t_list *chti;
+	int	index;
+
+	index = 0;
+	while (index < count)
+	{
+		chti = lst;
+		while (lst -> next)
+		{
+			if (chti -> content > lst -> content && !chtitator(chti))
+				chti = lst;
+			lst = lst -> next;
+		}
+		chti -> index = index++;
+	}
+}
+
+void	addnewf(t_list **lst, int content)
 {
 	t_list *new;
 
@@ -8,7 +27,6 @@ void	addnewf(t_list **lst, int content, int number)
 	if (!new)
 		return; 
 	new -> content = content;
-	new -> number = number;
 	new -> next = *lst;
 	new -> status = 1;
 	(*lst) -> prev = new; 
@@ -23,10 +41,9 @@ t_list	*arrayst(int count, int *tab)
 		return (write(1, "\n\n\nmalloc failed\n", 17), NULL);
 	head -> next = NULL;
 	head -> content = tab[--count];
-	head -> number = count;
 	head -> status = 1;
 	while (--count >= 0)
-		addnewf(&head, tab[count], count);
+		addnewf(&head, tab[count]);
 	head -> prev = NULL;
 	return(head);
 }
@@ -51,7 +68,6 @@ t_list	*blst(int count)
 	b = malloc(sizeof(t_list));
 	if (!b)
 		return (write(1, "\n\n\nmalloc failed\n", 17), NULL);
-	b -> number = --count;
 	b -> next = NULL;
 	b -> status = 0;
 	while (--count >= 0)
@@ -61,7 +77,6 @@ t_list	*blst(int count)
 			return (write(1, "\n\n\nmalloc failed\n", 17), NULL);
 		b -> prev -> next = b;
 		b = b -> prev;
-		b -> number = count;
 		b -> status = 0;
 	}
 	b -> prev = NULL;

@@ -59,7 +59,6 @@ int count(int c, char **v)
 		}
 		i++;
 	}
-	printf("\n(count)res = %d\n\n\n", res);
 	return (res);
 }
 
@@ -130,7 +129,7 @@ int	main(int c, char **v)
 {
 	int	*tab;
 	int	*st;
-	int status;
+	int 	status;
 	int	couint;
 	int	i = -1;
 	t_list	*a;
@@ -141,48 +140,43 @@ int	main(int c, char **v)
 	if (c == 1)
 		return (0);
 	if (c < 2)
-		return (write(1, "Error1a\n", 8));
+		return (write(1, "Error\n", 6));
 	if (parse(c, v))
-		return (write(1, "Error2p\n", 8));
+		return (write(1, "Error\n", 6));
 	couint = count(c, v);
 	tab = stock(v, couint, c, st);
 	if (status == 1)
 	{
 		free(tab);
-		return (write(1, "Error3d\n", 8));
+		return (write(1, "Error\n", 6));
 	}
 	while (++i < couint)
 		printf("tab[%d] = %d\n", i, tab[i]);
 	printf("\n\n");
 	
-	a = arrayst(couint, tab);
-	while (a -> next)
-	{
-			printf("a n°%d (s = %d)= '%d'\n", a -> number, a -> status, a -> content);
-		a = a -> next;
-	}
-	printf("a n°%d (s = %d)= '%d'\n", a -> number, a -> status, a -> content);
-	while (a -> prev)
-	{
-		printf("a n°%d (s = %d)= '%d'\n", a -> number, a -> status, a -> content);
-		a = a -> prev;
-	}
-	printf("a n°%d (s = %d)= '%d'\n\n\n", a -> number, a -> status, a -> content);
 	
+	a = arrayst(couint, tab);
+	indexator(a, couint);
 	b = blst(couint);
-	while (b -> next)
-	{
-			printf("b n°%d (s = %d)= '%d'\n", b -> number, b -> status, b -> content);
-		b = b -> next;
-	}
-	printf("b n°%d (s = %d)= '%d'\n", b -> number, b -> status, b -> content);
-	while (b -> prev)
-	{
-		printf("b n°%d (s = %d)= '%d'\n", b -> number, b -> status, b -> content);
-		b = b -> prev;
-	}
-	printf("b n°%d (s = %d)= '%d'\n", b -> number, b -> status, b -> content);
+	prin(a, "lst a");
+	prin(b, "lst b");
 
+	swap(&a);
+	prin(a, "swp lst a");
+	prin(b, "lst b");	
+	
+	push(&a, &b);
+	prin(a, "psh lst a");
+	prin(b, "to lst b");	
+	
+	rotate(&a);
+	prin(a, "rtt lst a");
+	prin(b, "lst b");
+	
+	rev_rotate(&a);
+	prin(a, "rrtt lst a");
+	prin(b, "lst b");
+	
 	free(tab);
 	liberator(a);
 	liberator(b);

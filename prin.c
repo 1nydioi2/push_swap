@@ -2,12 +2,11 @@
 
 void	prin(t_list *lst, char *str)
 {
-	while (lst -> next)
+	while (lst)
 	{
 		printf("%s", str);
 		printf(" n°%d = %d\n", lst -> index, lst -> content);
 		lst = lst -> next;
 	}
-		printf("%s", str);
-		printf(" n°%d = %d\n\n", lst -> index, lst -> content);
+	write(1, "\n", 1);
 }

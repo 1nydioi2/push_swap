@@ -6,7 +6,7 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:03:12 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/16 20:13:39 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/17 19:04:20 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,16 @@ void	indexator(t_list *lst, int *tab, int count)
 	index = 0;
 	while (index < count)
 	{
-		chti = lst;
 		mp3 = lst;
-		while (mp3 -> next)
+		chti = lst;
+		while (mp3)
 		{
 			if ((chti -> content > mp3 -> content) 
-					&& (!chtitator(chti -> content, tab, count, index)))
+					&& (!chtitator(mp3 -> content, tab, count, index)))
 				chti = mp3;
 			mp3 = mp3 -> next;
 		}
+		tab[index] = chti -> content;
 		chti -> index = index++;
 	}
 }
@@ -85,7 +86,7 @@ t_list	*blst(int count)
 		return (write(1, "\n\n\nmalloc failed\n", 17), NULL);
 	b -> next = NULL;
 	b -> status = 0;
-	while (--count >= 0)
+	while (--count > 0)
 	{
 		b -> prev = malloc(sizeof(t_list));
 		if (!b -> prev)

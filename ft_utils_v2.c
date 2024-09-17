@@ -6,7 +6,7 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:07:37 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/16 19:55:31 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/17 19:04:37 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,11 @@ int	chtitator(int chti, int *tab, int count, int index)
 	
 	(void) count;
 	i = -1;
-	printf("chti = %d, tab[%d] = %d\n", chti, i, tab[i]);
 	while (++i <= index)
 	{
-		printf("chti = %d, tab[%d] = %d\n", chti, i, tab[i]);
 		if (chti == tab[i])
 			return (1);
 	}
-	tab[index] = chti;
 	return (0);
 }
 

@@ -14,22 +14,23 @@
 
 void	indexator(t_list *lst, int count)
 {
-	t_list	*chti;
+	t_list	*t_index;
 	t_list	*mp3;
-	int	index;
+	int	i;
 
-	index = 0;
-	while (index < count)
+	t_index = lst;
+	while (t_index)
 	{
+		i = 0
 		mp3 = lst;
-		chti = lst;
 		while (mp3)
 		{
-			if (((chti -> content > mp3 -> content) || chti -> index) && (!mp3 -> index))
-				chti = mp3;
-			mp3 = mp3 -> next;
+			if (t_index -> content > mp3 -> content)
+				i++;
+			mp3 = mp -> next; 
 		}
-		chti -> index = index++;
+		t_index -> index = i;
+		t_index = t_index -> next;
 	}
 }
 

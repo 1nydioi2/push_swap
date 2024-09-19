@@ -6,31 +6,35 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:07:37 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/17 19:04:37 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/19 01:54:06 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	chtitator(int chti, int *tab, int count, int index)
+void	phone(int *tab, int count, int argc)
 {
-	int	i;
-	
-	(void) count;
-	i = -1;
-	while (++i <= index)
+	t_list	*a;
+	t_list	*b;
+
+	a = arrayst(count, tab);
+	free(tab);
+	indexator(a, count);
+	if (alr_sorted(a))
 	{
-		if (chti == tab[i])
-			return (1);
+		liberator (a);
+		liberator (b);
+		free(tab);
+		return;
 	}
-	return (0);
-}
-
-void	tabulator(int *tab, int count)
-{
-	int	i;
-
-	i = -1;
-	while (++i < count)
-		tab[i] = 0;
+	b = blst(count);
+	if (argc == 4)
+		three(&a);
+	else if (argc == 5)
+		four(&a, &b);
+	else if (argc == 6)
+		five (&a, &b);
+	prin(a, "lst a");
+	liberator (a);
+	liberator (b);
 }

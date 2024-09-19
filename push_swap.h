@@ -6,7 +6,7 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 08:37:30 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/16 19:47:27 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/19 01:52:00 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,21 @@ typedef struct	s_list
 	struct s_list	*next;
 	struct s_list	*prev;
 }	t_list;
-t_list			*arrayst(int count, int *tab);
-t_list			*blst(int count);
-void			liberator(t_list *lst);
-void			swap(t_list **lst);
-void			push(t_list **alpha, t_list **beta);
-void			rotate(t_list **lst);
-void			rev_rotate(t_list **lst);
-void			prin(t_list *lst, char *str);
-void			ss(t_list **a, t_list **b);
-void			rr(t_list **a, t_list **b);
-void			rrr(t_list **a, t_list **b);
-void			indexator(t_list *lst, int *tab, int count);
-int				chtitator(int chti, int *tab, int count, int index);
-void			tabulator(int *tab, int count);
+t_list	*arrayst(int count, int *tab);
+t_list	*blst(int count);
+void	liberator(t_list *lst);
+void	swap(t_list **lst, int print);
+void	push(t_list **alpha, t_list **beta, int print);
+void	rotate(t_list **lst, int print);
+void	rev_rotate(t_list **lst, int print);
+void	prin(t_list *lst, char *str);
+void	ss(t_list **a, t_list **b);
+void	rr(t_list **a, t_list **b);
+void	rrr(t_list **a, t_list **b);
+void	indexator(t_list *lst, int count);
+int	alr_sorted(t_list *a);
+void	three(t_list **a);
+void	four(t_list **a, t_list **b);
+void	five(t_list **a, t_list **b);
+void	phone(int *tab, int count, int argc);
 #endif

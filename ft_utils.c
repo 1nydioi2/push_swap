@@ -6,17 +6,17 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:03:12 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/17 19:04:20 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/19 01:56:16 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	indexator(t_list *lst, int *tab, int count)
+void	indexator(t_list *lst, int count)
 {
 	t_list	*chti;
 	t_list	*mp3;
-	int		index;
+	int	index;
 
 	index = 0;
 	while (index < count)
@@ -25,12 +25,10 @@ void	indexator(t_list *lst, int *tab, int count)
 		chti = lst;
 		while (mp3)
 		{
-			if ((chti -> content > mp3 -> content) 
-					&& (!chtitator(mp3 -> content, tab, count, index)))
+			if (((chti -> content > mp3 -> content) || chti -> index) && (!mp3 -> index))
 				chti = mp3;
 			mp3 = mp3 -> next;
 		}
-		tab[index] = chti -> content;
 		chti -> index = index++;
 	}
 }

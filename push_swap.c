@@ -6,7 +6,7 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 08:24:14 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/16 19:37:20 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/19 01:14:40 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,8 +132,6 @@ int	main(int c, char **v)
 	int 	status;
 	int	couint;
 	int	i = -1;
-	t_list	*a;
-	t_list	*b;
 
 	status = 0;
 	st = &status;
@@ -145,24 +143,11 @@ int	main(int c, char **v)
 		return (write(1, "Error\n", 6));
 	couint = count(c, v);
 	tab = stock(v, couint, c, st);
-	if (status == 1)
-	{
-		free(tab);
-		return (write(1, "Error\n", 6));
-	}
+	if (status)
+		return (free(tab), write(1, "Error\n", 6));
 	while (++i < couint)
 		printf("tab[%d] = %d\n", i, tab[i]);
 	printf("\n\n");
 	
-	
-	a = arrayst(couint, tab);
-	tabulator(tab, couint);
-	indexator(a, tab, couint);
-	b = blst(couint);
-	prin(a, "lst a");
-	prin(b, "lst b");
-
-	free(tab);
-	liberator(a);
-	liberator(b);
+	phone(tab, couint, c);
 }

@@ -6,13 +6,13 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 18:00:17 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/16 19:18:30 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/19 00:58:04 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_list **lst)
+void	swap(t_list **lst, int print)
 {
 	if ((*lst) -> status && (*lst) -> next -> status)
 	{
@@ -22,10 +22,13 @@ void	swap(t_list **lst)
 		(*lst) -> prev -> next = *lst;
 		*lst = (*lst) -> prev;
 	}
-	return;
+	if (print == 1)
+		write(1, "sa\n", 3);
+	if (print == 2)
+		write(1, "sb\n", 3);
 }
 
-void	push(t_list **alpha, t_list **beta)
+void	push(t_list **alpha, t_list **beta, int print)
 {
 	if ((*alpha) -> status)
 	{
@@ -35,9 +38,13 @@ void	push(t_list **alpha, t_list **beta)
 		(*beta) -> prev -> next = *beta;
 		*beta = (*beta) -> prev;
 	}
+	if (print == 1)
+		write(1, "pb\n", 3);
+	if (print == 2)
+		write(1, "pa\n", 3);
 }
 
-void	rotate(t_list **lst)
+void	rotate(t_list **lst, int print)
 {
 	t_list	*tail;
 
@@ -52,9 +59,13 @@ void	rotate(t_list **lst)
 		tail -> next -> prev = tail;
 		tail -> next -> next = NULL;
 	}
+	if (print == 1)
+		write(1, "ra\n", 3);
+	if (print == 2)
+		write(1, "rb\n", 3);
 }
 
-void	rev_rotate(t_list **lst)
+void	rev_rotate(t_list **lst, int print)
 {
 	t_list *tail;
 
@@ -69,6 +80,10 @@ void	rev_rotate(t_list **lst)
 		tail -> next = *lst;
 		*lst = tail;
 	}
+	if (print == 1)
+		write(1, "rra\n", 4);
+	if (print == 2)
+		write(1, "rrb\n", 4);
 }
 
 

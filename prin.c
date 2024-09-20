@@ -2,7 +2,7 @@
 
 void	prin(t_list *lst, char *str)
 {
-	while (lst)
+	while (lst && lst -> status)
 	{
 		printf("%s", str);
 		printf(" n°%d = %d\n", lst -> index, lst -> content);

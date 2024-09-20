@@ -6,7 +6,7 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 08:37:30 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/19 01:52:00 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/19 16:22:47 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ void	prin(t_list *lst, char *str);
 void	ss(t_list **a, t_list **b);
 void	rr(t_list **a, t_list **b);
 void	rrr(t_list **a, t_list **b);
-void	indexator(t_list *lst, int count);
-int	alr_sorted(t_list *a);
-void	three(t_list **a);
-void	four(t_list **a, t_list **b);
+void	indexator(t_list *lst);
+int		alr_sorted(t_list *a);
+void	three(t_list **a, int p);
+void	four(t_list **a, t_list **b, int p);
 void	five(t_list **a, t_list **b);
 void	phone(int *tab, int count, int argc);
 #endif

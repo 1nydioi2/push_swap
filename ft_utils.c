@@ -6,13 +6,13 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:03:12 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/19 01:56:16 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:23:58 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	indexator(t_list *lst, int count)
+void	indexator(t_list *lst)
 {
 	t_list	*t_index;
 	t_list	*mp3;
@@ -21,13 +21,13 @@ void	indexator(t_list *lst, int count)
 	t_index = lst;
 	while (t_index)
 	{
-		i = 0
+		i = 0;
 		mp3 = lst;
 		while (mp3)
 		{
 			if (t_index -> content > mp3 -> content)
 				i++;
-			mp3 = mp -> next; 
+			mp3 = mp3 -> next; 
 		}
 		t_index -> index = i;
 		t_index = t_index -> next;

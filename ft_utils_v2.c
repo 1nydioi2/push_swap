@@ -6,11 +6,23 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:07:37 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/19 18:06:22 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/21 18:49:10 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	positioner(t_list *lst)
+{
+	int	ppos;
+
+	ppos = 0;
+	while (lst)
+	{
+		lst -> pos = ppos++;
+		lst = lst -> next;
+	}
+}
 
 void	phone(int *tab, int count, int argc)
 {
@@ -36,6 +48,8 @@ void	phone(int *tab, int count, int argc)
 		four(&a, &b, 0);
 	else if (argc == 6)
 		five (&a, &b);
+	else
+		radix(&a, &b, count);
 	prin(a, "lst a");
 	liberator (a);
 	liberator (b);

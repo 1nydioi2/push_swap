@@ -6,7 +6,7 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 08:37:30 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/19 16:22:47 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/21 15:32:27 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@
 
 typedef struct	s_list
 {
-	int				content;
-	int				index;
-	int				status;
-	struct s_list	*next;
-	struct s_list	*prev;
+	int	content;
+	int	index;
+	int	status;
+	int	pos;
+	struct	s_list	*next;
+	struct	s_list	*prev;
 }	t_list;
 t_list	*arrayst(int count, int *tab);
 t_list	*blst(int count);
@@ -37,9 +38,11 @@ void	ss(t_list **a, t_list **b);
 void	rr(t_list **a, t_list **b);
 void	rrr(t_list **a, t_list **b);
 void	indexator(t_list *lst);
-int		alr_sorted(t_list *a);
+int	alr_sorted(t_list *a);
 void	three(t_list **a, int p);
 void	four(t_list **a, t_list **b, int p);
 void	five(t_list **a, t_list **b);
 void	phone(int *tab, int count, int argc);
+void	radix(t_list **a, t_list **b, int count);
+void	positioner(t_list *lst);
 #endif

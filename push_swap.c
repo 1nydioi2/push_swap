@@ -6,7 +6,7 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 08:24:14 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/19 01:14:40 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/21 15:13:37 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,7 +147,6 @@ int	main(int c, char **v)
 		return (free(tab), write(1, "Error\n", 6));
 	while (++i < couint)
 		printf("tab[%d] = %d\n", i, tab[i]);
-	printf("\n\n");
-	
+	printf("\n\n");	
 	phone(tab, couint, c);
 }

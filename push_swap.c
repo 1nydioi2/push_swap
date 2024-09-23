@@ -6,7 +6,7 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 08:24:14 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/21 15:13:37 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/24 00:25:08 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,9 @@ int	fatoi (char *str, int *status)
 	}
 	while ((*str && str) && (*str >= '0' && *str <= '9'))
 	{
-		if (in > 9 || ((in == 9 && res > 214748364) || (in == 9 && ((sign > 0 && *str > '7') || (sign < 0 && *str > '8')))))
+		if (in > 9 || ((in == 9 && res > 214748364) && (in == 9 && ((sign > 0 && *str > '7') || (sign < 0 && *str > '8')))))
 		{
+			printf("fatoi\tin = %d, res = %d\n\n", in, res);
 			*status = 1;
 			return (res);
 		}
@@ -112,6 +113,7 @@ int	*stock(char **v, int count, int c, int *status)
 		{
 			if (res == list[k[1]++] || *status)
 			{
+				printf("stock\tres = %d\nlist[%d] = %d", res, (k[1] - 1), list[k[1] - 1]);
 				*status = 1;
 				return (list);
 			}
@@ -140,11 +142,11 @@ int	main(int c, char **v)
 	if (c < 2)
 		return (write(1, "Error\n", 6));
 	if (parse(c, v))
-		return (write(1, "Error\n", 6));
+		return (write(1, "Errorp\n", 6));
 	couint = count(c, v);
 	tab = stock(v, couint, c, st);
 	if (status)
-		return (free(tab), write(1, "Error\n", 6));
+		return (free(tab), write(1, "Errord\n", 6));
 	while (++i < couint)
 		printf("tab[%d] = %d\n", i, tab[i]);
 	printf("\n\n");	

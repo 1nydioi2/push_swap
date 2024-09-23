@@ -6,11 +6,38 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:07:37 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/21 18:49:10 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/23 23:53:59 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_list	*lowest_node_1(t_list *lst)
+{
+	t_list	*low;
+
+	low = lst;
+	while (lst)
+	{
+		if (lst -> pos1 < low -> pos1)
+			low = lst;
+		lst = lst -> next;
+	}
+	return (low);
+}
+
+int	lst_count(t_list *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		i++;
+		lst = lst -> next;
+	}
+	return (i);
+}
 
 void	positioner(t_list *lst)
 {
@@ -20,6 +47,19 @@ void	positioner(t_list *lst)
 	while (lst)
 	{
 		lst -> pos = ppos++;
+		lst = lst -> next;
+	}
+}
+
+void	pos1t1oner(t_list *lst, int i)
+{
+	int	ppos;
+
+	ppos = 0;
+	while (lst)
+	{
+		if ((lst -> index >> i) & 1)
+			lst -> pos1 = ppos++;
 		lst = lst -> next;
 	}
 }
@@ -50,7 +90,7 @@ void	phone(int *tab, int count, int argc)
 		five (&a, &b);
 	else
 		radix(&a, &b, count);
-	prin(a, "lst a");
+	prin(a, "\n\nlst a");
 	liberator (a);
 	liberator (b);
 }

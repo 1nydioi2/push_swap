@@ -113,7 +113,7 @@ int	*stock(char **v, int count, int c, int *status)
 		{
 			if (res == list[k[1]++] || *status)
 			{
-				printf("stock\tres = %d\nlist[%d] = %d", res, (k[1] - 1), list[k[1] - 1]);
+				//printf("stock\tres = %d\nlist[%d] = %d", res, (k[1] - 1), list[k[1] - 1]);
 				*status = 1;
 				return (list);
 			}
@@ -133,22 +133,22 @@ int	main(int c, char **v)
 	int	*st;
 	int 	status;
 	int	couint;
-	int	i = -1;
+//²	int	i = -1;
 
 	status = 0;
 	st = &status;
 	if (c == 1)
 		return (0);
 	if (c < 2)
-		return (write(1, "Error\n", 6));
+		return (write(1, "Errorc\n", 7));
 	if (parse(c, v))
-		return (write(1, "Errorp\n", 6));
+		return (write(1, "Errorp\n", 7));
 	couint = count(c, v);
 	tab = stock(v, couint, c, st);
 	if (status)
-		return (free(tab), write(1, "Errord\n", 6));
-	while (++i < couint)
-		printf("tab[%d] = %d\n", i, tab[i]);
-	printf("\n\n");	
+		return (free(tab), write(1, "Error7\n", 6));
+	//while (++i < couint)
+	//	printf("tab[%d] = %d\n", i, tab[i]);
+	//printf("\n\n");	
 	phone(tab, couint, c);
 }

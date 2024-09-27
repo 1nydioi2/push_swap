@@ -6,7 +6,7 @@
 /*   By: nilamber <nilamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 18:15:26 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/23 23:52:14 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/24 20:29:18 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ void	snowplow(t_list **a, t_list **b, t_list *mp3)
 	count = lst_count(*a);
 	while (mp3 -> pos != 0)
 	{
-		if (mp3 -> pos == 1)
-			swap(a, 1);
-		else if (count - mp3 -> pos > count / 2)
+		if (count - mp3 -> pos > count / 2)
 			rotate(a, 1);
 		else
 			rev_rotate(a, 1);
@@ -36,24 +34,16 @@ void	reorderator(t_list **a, t_list **b)
 	int	count;
 	t_list	*low;
 
+	(void) b;
 	count = lst_count(*a);
-	while (count > 1)
+	low = lowest_node_1(*a);
+	while (low -> pos > 0)
 	{
-		low = lowest_node_1(*a);
-		while (low -> pos > 0)
-		{
-			if (low -> pos == 1)
-				swap(a, 3);
-			else if (count - low -> pos > count / 2)
-				rotate(a, 1);
-			else
-				rev_rotate(a, 1);
-			positioner(*a);
-		}
-		if (count == 2)
-			break;
-		push(a, b, 1);
-		count = lst_count(*a);
+		if (count - low -> pos > count / 2)
+			rotate(a, 1);
+		else
+			rev_rotate(a, 1);
+		positioner(*a);
 	}
 }
 
@@ -64,14 +54,12 @@ void	pba(t_list **b, t_list **a)
 	positioner(*a);
 }
 
-
-
 int	max_bin_l(int count)
 {
 	int	i;
 
 	i = 31;
-	while (i && (!(count >> i) & 1))
+	while (i && (!((count >> i) & 1)))
 		i--;
 	return (i + 1);
 }
@@ -105,4 +93,5 @@ void	radix(t_list **a, t_list **b, int count)
 		pba(b, a);
 		i++;
 	}
+	prin(*a, "a");
 }

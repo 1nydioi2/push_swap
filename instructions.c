@@ -6,7 +6,7 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 18:00:17 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/23 23:52:50 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/24 18:31:10 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,21 @@ void	swap(t_list **lst, int print)
 
 void	push(t_list **alpha, t_list **beta, int print)
 {
-	if ((*alpha) -> status)
+	if ((*alpha) -> status && (lst_count(*alpha) != 1))
 	{
 		(*beta) -> prev = *alpha;
 		(*alpha) -> next -> prev = (*alpha) -> prev;
 		*alpha = (*alpha) -> next;
 		(*beta) -> prev -> next = *beta;
 		*beta = (*beta) -> prev;
+
+		if (print == 1)
+			write(1, "pb\n", 3);
+		if (print == 2)
+			write(1, "pa\n", 3);
+		//prin(*alpha, "alpha\t");
+		//prin(*beta, "beta\t");
 	}
-	if (print == 1)
-		write(1, "pb\n", 3);
-	if (print == 2)
-		write(1, "pa\n", 3);
 }
 
 void	rotate(t_list **lst, int print)
@@ -65,6 +68,7 @@ void	rotate(t_list **lst, int print)
 		write(1, "ra\n", 3);
 	if (print == 2)
 		write(1, "rb\n", 3);
+	//prin(*lst, "alpha\t");
 }
 
 void	rev_rotate(t_list **lst, int print)
@@ -86,6 +90,7 @@ void	rev_rotate(t_list **lst, int print)
 		write(1, "rra\n", 4);
 	if (print == 2)
 		write(1, "rrb\n", 4);
+	//prin(*lst, "alpha\t");
 }
 
 

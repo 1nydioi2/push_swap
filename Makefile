@@ -16,7 +16,7 @@ COMP_FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	ar rcs $(NAME) $(OBJECTS)
+	$(COMP) $(COMP_FLAGS) -o $(NAME) $(OBJECTS)
 
 %.o: %.c
 	$(COMP) $(COMP_FLAGS) -o $@ -c $<

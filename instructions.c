@@ -28,6 +28,7 @@ void	swap(t_list **lst, int print)
 		write(1, "sa\n", 3);
 	if (print == 2)
 		write(1, "sb\n", 3);
+	//prin(*lst, "lst ");
 }
 
 void	push(t_list **alpha, t_list **beta, int print)
@@ -44,6 +45,8 @@ void	push(t_list **alpha, t_list **beta, int print)
 		write(1, "pb\n", 3);
 	if (print == 2)
 		write(1, "pa\n", 3);
+	//prin(*alpha, "alpha ");
+	//prin(*beta, "beta ");
 }
 
 void	rotate(t_list **lst, int print)
@@ -65,6 +68,7 @@ void	rotate(t_list **lst, int print)
 		write(1, "ra\n", 3);
 	if (print == 2)
 		write(1, "rb\n", 3);
+	//prin(*lst, "lst ");
 }
 
 void	rev_rotate(t_list **lst, int print)
@@ -86,6 +90,7 @@ void	rev_rotate(t_list **lst, int print)
 		write(1, "rra\n", 4);
 	if (print == 2)
 		write(1, "rrb\n", 4);
+	//prin(*lst, "lst ");
 }
 
 

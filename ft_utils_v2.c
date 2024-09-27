@@ -72,7 +72,6 @@ void	phone(int *tab, int count, int argc)
 	a = arrayst(count, tab);
 	free(tab);
 	indexator(a);
-//	prin(a, "lst a");
 	b = blst(count);
 	if (alr_sorted(a))
 	{
@@ -90,7 +89,6 @@ void	phone(int *tab, int count, int argc)
 		five (&a, &b);
 	else
 		radix(&a, &b, count);
-//	prin(a, "\n\nlst a");
 	liberator (a);
 	liberator (b);
 }

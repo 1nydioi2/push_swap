@@ -19,9 +19,7 @@ void	snowplow(t_list **a, t_list **b, t_list *mp3)
 	count = lst_count(*a);
 	while (mp3 -> pos != 0)
 	{
-		if (mp3 -> pos == 1)
-			swap(a, 1);
-		else if (count - mp3 -> pos > count / 2)
+		if (count - mp3 -> pos > count / 2)
 			rotate(a, 1);
 		else
 			rev_rotate(a, 1);
@@ -42,9 +40,7 @@ void	reorderator(t_list **a, t_list **b)
 		low = lowest_node_1(*a);
 		while (low -> pos > 0)
 		{
-			if (low -> pos == 1)
-				swap(a, 3);
-			else if (count - low -> pos > count / 2)
+			if (count - low -> pos > count / 2)
 				rotate(a, 1);
 			else
 				rev_rotate(a, 1);
@@ -71,7 +67,7 @@ int	max_bin_l(int count)
 	int	i;
 
 	i = 31;
-	while (i && (!(count >> i) & 1))
+	while (i && (!((count >> i) & 1)))
 		i--;
 	return (i + 1);
 }

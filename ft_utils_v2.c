@@ -6,7 +6,7 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:07:37 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/24 20:30:15 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/23 23:53:59 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	phone(int *tab, int count, int argc)
 		five (&a, &b);
 	else
 		radix(&a, &b, count);
-	prin(a, "lst a");
+//	prin(a, "\n\nlst a");
 	liberator (a);
 	liberator (b);
 }

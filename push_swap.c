@@ -6,7 +6,7 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 08:24:14 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/24 20:36:33 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/24 00:25:08 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ int	main(int c, char **v)
 	int	*st;
 	int 	status;
 	int	couint;
-	int	i = -1;
+//²	int	i = -1;
 
 	status = 0;
 	st = &status;
@@ -146,9 +146,9 @@ int	main(int c, char **v)
 	couint = count(c, v);
 	tab = stock(v, couint, c, st);
 	if (status)
-		return (free(tab), write(1, "Error7\n", 6));
-	while (++i < couint)
-		printf("tab[%d] = %d\n", i, tab[i]);
-	printf("\n\n");	
+		return (free(tab), write(1, "Errors\n", 7));
+	//while (++i < couint)
+	//	printf("tab[%d] = %d\n", i, tab[i]);
+	//printf("\n\n");	
 	phone(tab, couint, c);
 }

@@ -6,7 +6,7 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:07:37 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/23 23:53:59 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/30 14:28:38 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,8 @@ void	phone(int *tab, int count, int argc)
 	indexator(a);
 	b = blst(count);
 	if (alr_sorted(a))
-	{
-		liberator (a);
-		liberator (b);
-		return;
-	}
+		return (liberator(a), liberator(b));
+	positioner(a);
 	if (argc == 3)
 		swap(&a, 3);
 	if (argc == 4)
@@ -88,7 +85,7 @@ void	phone(int *tab, int count, int argc)
 	else if (argc == 6)
 		five (&a, &b);
 	else
-		radix(&a, &b, count);
+		radix(&a, &b, max_bin_l(count));
 	liberator (a);
 	liberator (b);
 }

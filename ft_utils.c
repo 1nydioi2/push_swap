@@ -6,7 +6,7 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:03:12 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/19 15:23:58 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/30 14:42:10 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	indexator(t_list *lst)
 {
 	t_list	*t_index;
 	t_list	*mp3;
-	int	i;
+	int		i;
 
 	t_index = lst;
 	while (t_index)
@@ -27,7 +27,7 @@ void	indexator(t_list *lst)
 		{
 			if (t_index -> content > mp3 -> content)
 				i++;
-			mp3 = mp3 -> next; 
+			mp3 = mp3 -> next;
 		}
 		t_index -> index = i;
 		t_index = t_index -> next;
@@ -36,21 +36,25 @@ void	indexator(t_list *lst)
 
 void	addnewf(t_list **lst, int content)
 {
-	t_list *new;
+	t_list	*new;
 
 	new = malloc(sizeof(t_list));
 	if (!new)
-		return; 
+	{
+		write(1, "\nMALLOC FAILED\n\n", 16);
+		return ;
+	}
 	new -> content = content;
 	new -> next = *lst;
 	new -> status = 1;
-	(*lst) -> prev = new; 
+	(*lst)-> prev = new;
 	*lst = new;
 }
 
 t_list	*arrayst(int count, int *tab)
 {
 	t_list	*head;
+
 	head = malloc(sizeof(t_list));
 	if (!head)
 		return (write(1, "\n\n\nmalloc failed\n", 17), NULL);
@@ -60,7 +64,7 @@ t_list	*arrayst(int count, int *tab)
 	while (--count >= 0)
 		addnewf(&head, tab[count]);
 	head -> prev = NULL;
-	return(head);
+	return (head);
 }
 
 void	liberator(t_list *lst)
@@ -78,8 +82,8 @@ void	liberator(t_list *lst)
 
 t_list	*blst(int count)
 {
-	t_list *b;
-	
+	t_list	*b;
+
 	b = malloc(sizeof(t_list));
 	if (!b)
 		return (write(1, "\n\n\nmalloc failed\n", 17), NULL);
@@ -97,27 +101,3 @@ t_list	*blst(int count)
 	b -> prev = NULL;
 	return (b);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

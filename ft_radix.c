@@ -6,7 +6,7 @@
 /*   By: nilamber <nilamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 18:15:26 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/23 23:52:14 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/30 14:57:11 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,14 @@ void	snowplow(t_list **a, t_list **b, t_list *mp3)
 
 void	reorderator(t_list **a, t_list **b)
 {
-	int	count;
+	int		count;
 	t_list	*low;
 
+	(void) b;
+	low = lowest_node_1(*a);
 	count = lst_count(*a);
-	while (count > 1)
+	while (low -> pos != 0)
 	{
-		low = lowest_node_1(*a);
 		while (low -> pos > 0)
 		{
 			if (count - low -> pos > count / 2)
@@ -47,20 +48,17 @@ void	reorderator(t_list **a, t_list **b)
 			positioner(*a);
 		}
 		if (count == 2)
-			break;
-		push(a, b, 1);
+			break ;
 		count = lst_count(*a);
 	}
 }
 
 void	pba(t_list **b, t_list **a)
 {
-	while ((*b) -> status)
+	while ((*b)-> status)
 		push(b, a, 2);
 	positioner(*a);
 }
-
-
 
 int	max_bin_l(int count)
 {
@@ -72,15 +70,12 @@ int	max_bin_l(int count)
 	return (i + 1);
 }
 
-void	radix(t_list **a, t_list **b, int count)
+void	radix(t_list **a, t_list **b, int mbl)
 {
-	t_list *mp3;
-	t_list *tmp;
-	int	mbl;
-	int	i;
+	t_list	*mp3;
+	t_list	*tmp;
+	int		i;
 
-	positioner(*a);
-	mbl = (max_bin_l(count));
 	i = 0;
 	while (i < mbl)
 	{

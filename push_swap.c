@@ -6,7 +6,7 @@
 /*   By: nilamber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 08:24:14 by nilamber          #+#    #+#             */
-/*   Updated: 2024/09/24 00:25:08 by nilamber         ###   ########.fr       */
+/*   Updated: 2024/09/30 14:41:43 by nilamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	parse(int c, char **v)
 		{
 			if ((v[i][j] < '0' || v[i][j] > '9')
 				&& (v[i][j] != 32 && (v[i][j] < 9 || v[i][j] > 13))
-					&& (v[i][j] != '-' || (v[i][j] == '-' 
+					&& (v[i][j] != '-' || (v[i][j] == '-'
 						&& (((v[i][j + 1] > '9' || v[i][j + 1] < '0')
 							|| (j != 0 && (v[i][j - 1] != 32
-								&& (v[i][j - 1] < 9 
+								&& (v[i][j - 1] < 9
 									|| v[i][j - 1] > 13))))))))
 				return (1);
 			j++;
@@ -38,7 +38,7 @@ int	parse(int c, char **v)
 	return (0);
 }
 
-int count(int c, char **v)
+int	count(int c, char **v)
 {
 	int		i;
 	int		j;
@@ -62,7 +62,7 @@ int count(int c, char **v)
 	return (res);
 }
 
-int	fatoi (char **str, int *status)
+int	fatoi(char **str, int *status)
 {
 	int	res;
 	int	sign;
@@ -73,18 +73,13 @@ int	fatoi (char **str, int *status)
 	sign = 1;
 	while (**str != '-' && (**str < '0' || **str > '9'))
 		(*str)++;
-	if (**str == '-')
-	{
-		(*str)++;
+	if (**str == '-' && (*str)++)
 		sign = -1;
-	}
 	while ((**str && *str) && (**str >= '0' && **str <= '9'))
 	{
-		if (in > 9 || ((in == 9 && res > 214748364) && (in == 9 && ((sign > 0 && **str > '7') || (sign < 0 && **str > '8')))))
-		{
-			*status = 1;
-			return (res);
-		}
+		if (in > 9 || ((in == 9 && res > 214748364) && (in == 9 && ((sign > 0
+							&& **str > '7') || (sign < 0 && **str > '8')))))
+			return (*status = 1, res);
 		res *= 10;
 		res += (**str - '0');
 		in++;
@@ -99,8 +94,8 @@ int	*stock(char **v, int count, int c, int *status)
 	int	i;
 	int	k[2];
 	int	*list;
-	int 	res;
-	
+	int	res;
+
 	list = malloc(sizeof(int) * count);
 	i = 1;
 	*k = 0;
@@ -127,7 +122,7 @@ int	main(int c, char **v)
 {
 	int	*tab;
 	int	*st;
-	int 	status;
+	int	status;
 	int	couint;
 
 	status = 0;
@@ -137,7 +132,7 @@ int	main(int c, char **v)
 	if (c < 2)
 		return (write(1, "Error\n", 6));
 	if (parse(c, v))
-		return (write(1, "Error\n", 6));
+		return (write(1, "Erroa\n", 6));
 	couint = count(c, v);
 	tab = stock(v, couint, c, st);
 	if (status)

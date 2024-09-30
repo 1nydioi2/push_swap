@@ -132,7 +132,7 @@ int	main(int c, char **v)
 	if (c < 2)
 		return (write(1, "Error\n", 6));
 	if (parse(c, v))
-		return (write(1, "Erroa\n", 6));
+		return (write(1, "Error\n", 6));
 	couint = count(c, v);
 	tab = stock(v, couint, c, st);
 	if (status)
